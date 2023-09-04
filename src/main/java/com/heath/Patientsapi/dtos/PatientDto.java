@@ -1,4 +1,7 @@
 package com.heath.Patientsapi.dtos;
 
-public record PatientDto() {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record PatientDto(@NotBlank String name, @NotNull Integer age, @NotBlank String Disease) {
 }
