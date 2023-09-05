@@ -162,7 +162,7 @@ public class PatientService {
             }
 
             @Override
-            public <S extends PatientModel> boolean exists(Example<S> example) {
+           public <S extends PatientModel> boolean exists(Example<S> example) {
                 return false;
             }
 
@@ -170,6 +170,6 @@ public class PatientService {
             public <S extends PatientModel, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction) {
                 return null;
             }
-        }
+        };
     }
 }
