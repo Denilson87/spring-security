@@ -6,20 +6,22 @@ import com.heath.Patientsapi.repositories.PatientRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/hostpital")
+
 public class PatientController {
 
     @Autowired
     PatientRepository patientRepository;
 
     @PostMapping("/patient")
-
     public ResponseEntity<PatientModel> savePatient(@RequestBody @Valid PatientDto patientDto) {
         var patientModel = new PatientModel();
         BeanUtils.copyProperties(patientDto, patientModel);
@@ -27,4 +29,8 @@ public class PatientController {
 
         }
 
+    @GetMapping("/patient")
+    public ResponseEntity<Page<PatientModel>> getAllParkingSpots(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll(pageable));
+    }
 }
