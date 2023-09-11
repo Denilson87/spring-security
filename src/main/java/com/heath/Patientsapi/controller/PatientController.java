@@ -72,6 +72,4 @@ final  PatientService patientService;
         return ResponseEntity.status(HttpStatus.OK).body(patientService.save(patientModel));
     }
 
-
-
 }

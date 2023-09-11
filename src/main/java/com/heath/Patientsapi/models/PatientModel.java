@@ -18,7 +18,7 @@ public class PatientModel implements Serializable {
     @Column
     private Integer age;
     @Column
-    private String Disease;
+    private String disease;
     @Column
     private String addres;
 
@@ -48,11 +48,11 @@ public class PatientModel implements Serializable {
     }
 
     public String getDisease() {
-        return Disease;
+        return disease;
     }
 
     public void setDisease(String disease) {
-        Disease = disease;
+        disease = disease;
     }
 
     public String getAddres() {
