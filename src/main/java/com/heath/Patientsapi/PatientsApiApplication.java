@@ -6,11 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @SpringBootApplication
 public class PatientsApiApplication {
-	@GetMapping("/Hello")
-	public static String main(String[] args) {
+	public static void main(String[] args) {
 		SpringApplication.run(PatientsApiApplication.class, args);
 
-		return "Hello world";
 	}
 
 }
