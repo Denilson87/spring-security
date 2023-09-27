@@ -22,6 +22,16 @@ public class PatientModel implements Serializable {
     @Column
     private String addres;
 
+    @Column
+    private Integer category;
+
+    public Integer getCategory() {
+        return category;
+    }
+
+    public void setCategory(Integer category) {
+        this.category = category;
+    }
 
     public UUID getId() {
         return id;
